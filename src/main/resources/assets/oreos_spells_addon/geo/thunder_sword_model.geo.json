@@ -1,0 +1,37 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 10,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "ThunderSword",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-68.7, 0, -8.5],
+							"size": [56, 0.2, 17],
+							"pivot": [0.3, 0, 0],
+							"rotation": [0, 90, 0],
+							"uv": {
+								"north": {"uv": [17, 18], "uv_size": [16, 2]},
+								"east": {"uv": [0, 18], "uv_size": [17, 2]},
+								"south": {"uv": [50, 18], "uv_size": [16, 2]},
+								"west": {"uv": [33, 18], "uv_size": [17, 2]},
+								"up": {"uv": [0, 23], "uv_size": [64, 19]},
+								"down": {"uv": [0, 42], "uv_size": [64, -19]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

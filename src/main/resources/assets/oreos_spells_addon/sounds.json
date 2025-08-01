@@ -1,0 +1,12 @@
+{
+	"boogie_woogie_clap": {
+		"sounds": [
+		  "oreos_spells_addon:boogie_woogie_clap"
+		]
+	},
+	"thunderous_beat_sound":{
+		"sounds": [
+		  "oreos_spells_addon:thunderous_beat_sound"
+		]
+	}
+}

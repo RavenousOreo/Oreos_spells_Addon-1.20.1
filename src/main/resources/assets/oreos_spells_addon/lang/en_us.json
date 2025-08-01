@@ -1,0 +1,50 @@
+{
+  "spell.oreos_spells_addon.bloody_lance": "Sanguine Lance",
+  "spell.oreos_spells_addon.bloody_cleave": "Sanguine Cleave",
+  "spell.oreos_spells_addon.flowingredscales": "Flowing Red Scales",
+  "spell.oreos_spells_addon.piercing_blood": "Piercing Blood",
+  "spell.oreos_spells_addon.sacrificial_cleanse": "Sacrificial Cleanse",
+  "spell.oreos_spells_addon.thunder_clap_dash": "Thunder Clap Dash",
+  "spell.oreos_spells_addon.thundering_slash": "Thundering Slash",
+  "spell.oreos_spells_addon.sanguine_ascension": "Sanguine Ascension",
+  "spell.oreos_spells_addon.sanguine_pool": "Sanguine Pool",
+  "spell.oreos_spells_addon.frozen_blood": "Frozen Blood",
+  "spell.oreos_spells_addon.dismantle": "Dismantle",
+  "spell.oreos_spells_addon.cleave": "Cleave",
+  "spell.oreos_spells_addon.boogie_woogie": "Boogie Woogie!",
+  "spell.oreos_spells_addon.thunderous_crown": "Thundering Crown",
+  "spell.oreos_spells_addon.phantom_chrysalis": "Phantom Chrysalis",
+  "spell.oreos_spells_addon.void_rupture": "Ender Detritus",
+
+  "effect.oreos_spells_addon.flowing_red_scales": "Flowing Red Scales",
+  "effect.oreos_spells_addon.sanguine_pool": "Sanguine Pool",
+  "effect.oreos_spells_addon.frozen_blood": "Frozen Blood",
+  "effect.oreos_spells_addon.boogie_woogie_confusion": "Confusion",
+
+  "ui.irons_spellbooks.effect_resistance_level": "Resistance Level: %s",
+  "ui.oreos_spells_addon.ring_damage": "Damage per ring: §cRing 1§r: %s, §cRing 2§r: %s, §cRing 3§r: %s",
+  "ui.oreos_spells_addon.slashcount": "Slash Count: %s",
+  "ui.oreos_spells_addon.recast": "Recast Charges: %s",
+  "ui.oreos_spells_addon.maxhpdamage": "Percent Max HP Damage: %s",
+
+  "subtitles.oreos_spells_addon.boogie_woogie_clap": "Boogie Woogie",
+
+
+
+  "spell.oreos_spells_addon.sanguine_ascension.guide": "Launch yourself skyward in a burst of hemomantic force. Cast again midair to slam into a chosen location, rupturing the ground with volatile blood magic upon impact.",
+  "spell.oreos_spells_addon.bloody_lance.guide": "Conjure a lance forged from blood magic and hurl it with terrifying speed, piercing the air with violent force and leaving a crimson trail in its wake. On impact, it deals massive damage and restores 35% of the damage dealt as health.",
+  "spell.oreos_spells_addon.bloody_cleave.guide": "Empower your next melee strike with volatile blood magic, delivering a brutal cleave that siphons vitality from your target. Restores 15% of the damage dealt as health.",
+  "spell.oreos_spells_addon.piercing_blood.guide": "Condense a mass of volatile blood to a critical point, then unleash it in a focused, high-pressure stream. The blast deals heavy damage and pierces through all targets in its path.",
+  "spell.oreos_spells_addon.sacrificial_cleanse.guide": "Draw forth your tainted blood, purging afflictions at the cost of your own life. The pain sharpens your survival instinct—granting resistance and clarity as new blood takes its place.",
+  "spell.oreos_spells_addon.phantom_chrysalis.guide": "Transcend the moment by casting your soul into the chrysalis. Should harm reach you, your essence flutters free, transformed and empowered.",
+  "spell.oreos_spells_addon.sanguine_pool.guide": "Become blood itself temporarily—invulnerable, untouchable, and unable to interact. Enemies damaged by the pool restore 5% of the damage dealt as health to you.",
+  "spell.oreos_spells_addon.thundering_slash.guide": "Wreathe your blade in a raging thunderstorm and cleave through enemies with a strike charged in lightning.",
+  "spell.oreos_spells_addon.cleave.guide": "A flurry of slashes that divide reality, no matter the obstacle—the power to rend all things.",
+  "spell.oreos_spells_addon.thunderous_crown.guide": "Strike forward with a thunderous blade. Hit targets are marked with a Crown of Storms, summoning 8 lightning blades that orbit and damage them before converging in a final impalement and lightning strike.",
+  "spell.oreos_spells_addon.void_rupture.guide": "Tear holes into the End to unleash blades from the Forlorn Ocean of Remains — the graveyard of the End — to sever your enemies and vanish, like the ghosts to whom they once belonged.",
+  "spell.oreos_spells_addon.dismantle.guide": "Conceptualize a blade into reality — flying straight and true. Raw savagery given form: a pure and irrefutable end.",
+  "spell.oreos_spells_addon.boogie_woogie.guide": "Applause! Acclimation of the soul! Clap to control positioning: normal casts pull and stun foes or relocate allies, shift casts swap places or reposition them near others.",
+  "spell.oreos_spells_addon.frozen_blood.guide": "Freeze the flow of blood—the highway of humanity—into a crystalline monument. Harden your body into unyielding stone, impervious to blade or flame. For a moment, become as diamond: untouchable, immovable, eternal.",
+  "spell.oreos_spells_addon.flowingredscales.guide": "Ignite your body temperature and spike your red blood cell count—enter a state of crimson overdrive. Greatly enhances blood spell power, movement speed, and attack damage. Grants a flat 5% lifesteal while active.",
+  "spell.oreos_spells_addon.thunder_clap_dash.guide": "Dash forward as a bolt of lightning, instantly teleporting to your destination. If an enemy is struck, you instead teleport directly to them and detonate in a burst of electrical energy."
+}
