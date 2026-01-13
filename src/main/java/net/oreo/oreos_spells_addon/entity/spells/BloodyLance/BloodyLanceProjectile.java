@@ -17,10 +17,9 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.oreo.oreos_spells_addon.registries.OreoEntityRegistry;
 import net.oreo.oreos_spells_addon.registries.OreoSpellRegistry;
-import io.redspace.ironsspellbooks.registries.SoundRegistry;
-
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class BloodyLanceProjectile extends AbstractMagicProjectile {
 
@@ -42,9 +41,10 @@ public class BloodyLanceProjectile extends AbstractMagicProjectile {
     }
 
     @Override
-    public Optional<SoundEvent> getImpactSound() {
+    public Optional<Supplier<SoundEvent>> getImpactSound() {
         return Optional.empty();
     }
+
 
     public BloodyLanceProjectile(EntityType<? extends Projectile> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -84,12 +84,4 @@ public class BloodyLanceProjectile extends AbstractMagicProjectile {
         return tickCount;
     }
 
-    @Override
-    protected void defineSynchedData() {
-
-    }
-
-    public float getScale(float partialTicks) {
-        return Mth.clamp((this.tickCount + partialTicks) / 10f, 0.0f, 1.0f); // Grow over 10 ticks
-    }
 }

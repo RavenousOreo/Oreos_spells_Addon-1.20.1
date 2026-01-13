@@ -19,7 +19,6 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.level.Level;
-import net.oreo.oreos_spells_addon.capabilities.magic.OreoSyncedSpellData;
 import net.oreo.oreos_spells_addon.oreos_spells_addon;
 import net.oreo.oreos_spells_addon.effect.*;
 import net.oreo.oreos_spells_addon.registries.OreoMobEffectRegistry;

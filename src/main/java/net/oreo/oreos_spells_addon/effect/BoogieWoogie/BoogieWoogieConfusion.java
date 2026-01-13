@@ -1,5 +1,6 @@
 package net.oreo.oreos_spells_addon.effect.BoogieWoogie;
 
+import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -7,7 +8,7 @@ import net.minecraft.world.entity.Mob;
 
 import java.util.UUID;
 
-public class BoogieWoogieConfusion extends MobEffect {
+public class BoogieWoogieConfusion extends MobEffect implements ISyncedMobEffect {
     private static final UUID STUN_UUID = UUID.fromString("5cdd0937-1c3e-4856-9fa3-ec8d305b5dc0");
 
     public BoogieWoogieConfusion() {

@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
+import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.minecraft.ChatFormatting;
@@ -15,7 +16,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.oreo.oreos_spells_addon.capabilities.magic.OreoSyncedSpellData;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -27,7 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 import java.util.UUID;
 
-public class FlowingRedScalesEffect extends MagicMobEffect {
+public class FlowingRedScalesEffect extends MagicMobEffect implements ISyncedMobEffect {
     public static final float ATTACK_DAMAGE_PER_LEVEL = .05f;
     public static final float SPEED_PER_LEVEL = .0335f;
     public static final float BLOOD_POWER_PER_LEVEL = .10f;
@@ -62,25 +62,6 @@ public class FlowingRedScalesEffect extends MagicMobEffect {
         );
 
 
-
-    }
-
-    @Override
-    public void removeAttributeModifiers(LivingEntity livingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.removeAttributeModifiers(livingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(livingEntity).getSyncedData().removeEffects(OreoSyncedSpellData.FLOWINGREDSCALES);
-
-        Attribute lifesteal = ALObjects.Attributes.LIFE_STEAL.get();
-        if (lifesteal != null && pAttributeMap.hasAttribute(lifesteal)) {
-            UUID uuid = UUID.nameUUIDFromBytes("flowing_red_scales_lifesteal".getBytes());
-            pAttributeMap.getInstance(lifesteal).removeModifier(uuid);
-        }
-    }
-
-    @Override
-    public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().addEffects(OreoSyncedSpellData.FLOWINGREDSCALES);
 
     }
 

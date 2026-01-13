@@ -27,7 +27,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class ThunderousCrownSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "thunderous_crown");
     private final DefaultConfig defaultConfig = new DefaultConfig()

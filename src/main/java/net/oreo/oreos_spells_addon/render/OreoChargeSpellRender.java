@@ -22,7 +22,6 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 import software.bernie.geckolib.util.RenderUtils;
 
-import static io.redspace.ironsspellbooks.render.ChargeSpellLayer.getArmFromUseHand;
 
 public class OreoChargeSpellRender {
 

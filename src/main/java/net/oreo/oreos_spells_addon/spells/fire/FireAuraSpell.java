@@ -23,11 +23,12 @@ import net.oreo.oreos_spells_addon.registries.OreoMobEffectRegistry;
 
 import java.util.List;
 
-@AutoSpellConfig
+
 public class FireAuraSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "flame_aura");
 
     @Override
+    // fucking something is borked here with the round duration. I'm not sure where the error is but it's making me wanna hit a child.
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         float roundedDamage = Math.round(damagePerTick(spellLevel, caster) * 10) / 10.0f;
         float roundedDuration = Math.round((getDurationTicks(spellLevel, caster) / 20f) * 10) / 10.0f;

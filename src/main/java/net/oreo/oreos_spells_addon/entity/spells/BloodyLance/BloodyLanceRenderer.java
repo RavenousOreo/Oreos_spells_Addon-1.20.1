@@ -38,8 +38,6 @@ public class BloodyLanceRenderer extends EntityRenderer<BloodyLanceProjectile> {
     public void render(BloodyLanceProjectile entity, float yaw, float partialTicks, PoseStack poseStack, MultiBufferSource bufferSource, int light) {
         poseStack.pushPose();
 
-        float scale = entity.getScale(partialTicks);
-        poseStack.scale(scale, scale, scale);
 
 
 

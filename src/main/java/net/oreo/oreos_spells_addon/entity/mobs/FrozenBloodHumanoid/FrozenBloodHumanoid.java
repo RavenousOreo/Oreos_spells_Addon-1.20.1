@@ -3,6 +3,7 @@ package net.oreo.oreos_spells_addon.entity.mobs.FrozenBloodHumanoid;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -26,6 +27,7 @@ public class FrozenBloodHumanoid extends LivingEntity {
 
     private int deathTimer = -1;
     private UUID summonerUUID;
+    private LivingEntity cachedSummoner;
 
     public FrozenBloodHumanoid(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
@@ -35,11 +37,11 @@ public class FrozenBloodHumanoid extends LivingEntity {
         this(OreoEntityRegistry.FROZEN_BLOOD_HUMANOID.get(), level);
         this.moveTo(sourceEntity.getX(), sourceEntity.getY(), sourceEntity.getZ(), sourceEntity.getYRot(), sourceEntity.getXRot());
 
-        this.entityData.set(DATA_IS_BABY, sourceEntity.isBaby());
-        this.entityData.set(DATA_IS_SITTING, sourceEntity.isPassenger());
-        this.entityData.set(DATA_LIMB_SWING, sourceEntity.walkAnimation.speed());
-        this.entityData.set(DATA_LIMB_SWING_AMOUNT, sourceEntity.walkAnimation.position());
-        this.entityData.set(DATA_ATTACK_TIME, sourceEntity.attackAnim);
+        //this.entityData.set(DATA_IS_BABY, sourceEntity.isBaby());
+        //this.entityData.set(DATA_IS_SITTING, sourceEntity.isPassenger());
+        //this.entityData.set(DATA_LIMB_SWING, sourceEntity.walkAnimation.speed());
+        //this.entityData.set(DATA_LIMB_SWING_AMOUNT, sourceEntity.walkAnimation.position());
+        //this.entityData.set(DATA_ATTACK_TIME, sourceEntity.attackAnim);
 
         this.setPose(sourceEntity.getPose());
         this.setYBodyRot(sourceEntity.yBodyRot);
@@ -52,11 +54,36 @@ public class FrozenBloodHumanoid extends LivingEntity {
             this.setCustomNameVisible(true);
         }
 
+        float limbSwing = sourceEntity.walkAnimation.speed();
+        float limbSwingAmount = sourceEntity.walkAnimation.position();
+
+        this.entityData.set(DATA_ATTACK_TIME, sourceEntity.attackAnim);
+        this.setPose(sourceEntity.getPose());
+
         this.summonerUUID = sourceEntity.getUUID();
     }
 
     public void setDeathTimer(int ticks) {
         this.deathTimer = ticks;
+    }
+
+    public void setSummoner(@javax.annotation.Nullable LivingEntity owner) {
+        if (owner != null) {
+            this.summonerUUID = owner.getUUID();
+            this.cachedSummoner = owner;
+        }
+    }
+
+    public LivingEntity getSummoner() {
+        if (this.cachedSummoner != null && this.cachedSummoner.isAlive()) {
+            return this.cachedSummoner;
+        } else if (this.summonerUUID != null && this.level() instanceof ServerLevel) {
+            if (((ServerLevel) this.level()).getEntity(this.summonerUUID) instanceof LivingEntity livingEntity)
+                this.cachedSummoner = livingEntity;
+            return this.cachedSummoner;
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -128,6 +155,16 @@ public class FrozenBloodHumanoid extends LivingEntity {
     }
 
     @Override
+    public ItemStack getItemBySlot(EquipmentSlot slot) {
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void setItemSlot(EquipmentSlot slot, ItemStack stack) {
+        // No-op; statue can't equip items
+    }
+
+    @Override
     public boolean isBaby() {
         return this.entityData.get(DATA_IS_BABY);
     }
@@ -144,22 +181,12 @@ public class FrozenBloodHumanoid extends LivingEntity {
         return this.entityData.get(DATA_ATTACK_TIME);
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
+    public static AttributeSupplier.Builder prepareAttributes() {
         return LivingEntity.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 1.0D)
+                .add(Attributes.MAX_HEALTH, 1.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.0D)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 100.0D);
+                .add(Attributes.KNOCKBACK_RESISTANCE, 100.0D)
+                .add(Attributes.ATTACK_DAMAGE, 0)
+                .add(Attributes.FOLLOW_RANGE, 0.0);
     }
-
-    @Override
-    public ItemStack getItemBySlot(EquipmentSlot slot) {
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public void setItemSlot(EquipmentSlot slot, ItemStack stack) {
-        // No-op; statue can't equip items
-    }
-
-
 }

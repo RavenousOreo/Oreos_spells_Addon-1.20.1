@@ -15,7 +15,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.oreo.oreos_spells_addon.entity.HelixEffectRenderer;
 import net.oreo.oreos_spells_addon.entity.mobs.FrozenBloodHumanoid.FrozenBloodHumanoid;
 import net.oreo.oreos_spells_addon.entity.mobs.FrozenBloodHumanoid.FrozenBloodHumanoidRenderer;
-import net.oreo.oreos_spells_addon.entity.mobs.StoneHumanoid.StoneHumanoidRenderer;
 import net.oreo.oreos_spells_addon.entity.spells.BloodyCleave.BloodyCleaveRenderer;
 import net.oreo.oreos_spells_addon.entity.spells.BloodyLance.BloodyLanceRenderer;
 import net.oreo.oreos_spells_addon.entity.spells.Cleave.CleaveRenderer;
@@ -48,7 +47,6 @@ public class ClientSetup {
         event.registerEntityRenderer(OreoEntityRegistry.THUNDERING_SLASH.get(), ThunderingSlashRenderer::new);
         event.registerEntityRenderer(OreoEntityRegistry.HELIX_EFFECT_ENTITY.get(), HelixEffectRenderer::new);
         event.registerEntityRenderer(OreoEntityRegistry.SANGUINE_POOL_ENTITY.get(), SanguinePoolRenderer::new);
-        event.registerEntityRenderer(OreoEntityRegistry.STONE_HUMANOID.get(), StoneHumanoidRenderer::new);
         event.registerEntityRenderer(OreoEntityRegistry.FROZEN_BLOOD_HUMANOID.get(), FrozenBloodHumanoidRenderer::new);
         event.registerEntityRenderer(OreoEntityRegistry.DISMANTLE.get(), DismantleRenderer::new);
         event.registerEntityRenderer(OreoEntityRegistry.CLEAVE.get(), CleaveRenderer::new);
@@ -90,7 +88,7 @@ public class ClientSetup {
     public class ModEntityAttributes {
     @SubscribeEvent
         public static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
-            event.put(OreoEntityRegistry.FROZEN_BLOOD_HUMANOID.get(), FrozenBloodHumanoid.createAttributes().build());
+            event.put(OreoEntityRegistry.FROZEN_BLOOD_HUMANOID.get(), FrozenBloodHumanoid.prepareAttributes().build());
         }
     }
 }

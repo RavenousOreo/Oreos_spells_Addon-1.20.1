@@ -18,7 +18,7 @@ import net.oreo.oreos_spells_addon.registries.OreoMobEffectRegistry;
 
 import java.util.List;
 
-@AutoSpellConfig
+
 public class PhantomChrysalisSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "phantom_chrysalis");
 

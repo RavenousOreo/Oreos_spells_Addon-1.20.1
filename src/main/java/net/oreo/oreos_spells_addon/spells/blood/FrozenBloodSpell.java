@@ -3,6 +3,7 @@ import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
+import io.redspace.ironsspellbooks.capabilities.magic.SummonManager;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -18,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-@AutoSpellConfig
+
 public class FrozenBloodSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "frozen_blood");
 
@@ -75,9 +76,9 @@ public class FrozenBloodSpell extends AbstractSpell {
         entity.addEffect(new MobEffectInstance(OreoMobEffectRegistry.FROZENBLOODEFFECT.get(), duration, 0, false, false));
 
         // spawn frozenbloodentity
-        FrozenBloodHumanoid shadow = new FrozenBloodHumanoid(level, entity);
-        shadow.setDeathTimer(duration);
-        level.addFreshEntity(shadow);
+        FrozenBloodHumanoid FrozenBloodEntity = new FrozenBloodHumanoid(level, entity);
+        FrozenBloodEntity.setDeathTimer(duration);
+        level.addFreshEntity(FrozenBloodEntity);
     }
 
     private int getDurationTicks(int spellLevel, LivingEntity caster) {

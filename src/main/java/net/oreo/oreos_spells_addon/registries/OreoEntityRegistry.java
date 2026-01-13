@@ -9,7 +9,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.oreo.oreos_spells_addon.entity.HelixEffectEntity;
 import net.oreo.oreos_spells_addon.entity.mobs.FrozenBloodHumanoid.FrozenBloodHumanoid;
-import net.oreo.oreos_spells_addon.entity.mobs.StoneHumanoid.StoneHumanoid;
 import net.oreo.oreos_spells_addon.entity.spells.BloodyCleave.BloodyCleave;
 import net.oreo.oreos_spells_addon.entity.spells.Cleave.CleaveEntity;
 import net.oreo.oreos_spells_addon.entity.spells.Dismantle.DismantleProjectile;
@@ -72,12 +71,6 @@ public class OreoEntityRegistry {
                     .sized(1f, 1f)
                     .clientTrackingRange(64)
                     .build(new ResourceLocation(oreos_spells_addon.MODID, "sanguine_pool_entity").toString()));
-
-    public static final RegistryObject<EntityType<StoneHumanoid>> STONE_HUMANOID =
-            ENTITIES.register("stone_humanoid", () -> EntityType.Builder.<StoneHumanoid>of(StoneHumanoid::new, MobCategory.MISC)
-                    .sized(1f, 1f)
-                    .clientTrackingRange(64)
-                    .build(new ResourceLocation(oreos_spells_addon.MODID, "stone_humanoid").toString()));
 
     public static final RegistryObject<EntityType<FrozenBloodHumanoid>> FROZEN_BLOOD_HUMANOID =
             ENTITIES.register("frozen_blood_humanoid", () -> EntityType.Builder.<FrozenBloodHumanoid>of(FrozenBloodHumanoid::new, MobCategory.MISC)

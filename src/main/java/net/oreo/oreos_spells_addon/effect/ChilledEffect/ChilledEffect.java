@@ -3,6 +3,7 @@ package net.oreo.oreos_spells_addon.effect.ChilledEffect;
 import dev.shadowsoffire.attributeslib.api.ALObjects;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
@@ -13,11 +14,10 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.oreo.oreos_spells_addon.capabilities.magic.OreoSyncedSpellData;
 
 import java.util.UUID;
 
-public class ChilledEffect extends MagicMobEffect {
+public class ChilledEffect extends MagicMobEffect implements ISyncedMobEffect {
     public static final float SLOWNESS_PER_LEVEL = 0.10f;
     public static final float ICE_DAMAGE_TAKEN_PER_LEVEL = 0.15f;
     public static final UUID SLOWNESS_MODIFIER_ID = UUID.fromString("4473ec12-272b-4f11-8006-6d64766c578c");
@@ -39,25 +39,6 @@ public class ChilledEffect extends MagicMobEffect {
                 ChilledEffect.ICE_DAMAGE_TAKEN_PER_LEVEL,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         );
-    }
-
-    @Override
-    public void removeAttributeModifiers(LivingEntity livingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.removeAttributeModifiers(livingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(livingEntity).getSyncedData().removeEffects(OreoSyncedSpellData.CHILLEDEFFECT);
-
-        Attribute ice_magic_resist = AttributeRegistry.ICE_MAGIC_RESIST.get();
-        if (ice_magic_resist != null && pAttributeMap.hasAttribute(ice_magic_resist)) {
-            UUID uuid = UUID.nameUUIDFromBytes("SLOWNESS_MODIFIER".getBytes());
-            pAttributeMap.getInstance(ice_magic_resist).removeModifier(uuid);
-        }
-    }
-
-    @Override
-    public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(pLivingEntity).getSyncedData().addEffects(OreoSyncedSpellData.CHILLEDEFFECT);
-
     }
 
     @Override

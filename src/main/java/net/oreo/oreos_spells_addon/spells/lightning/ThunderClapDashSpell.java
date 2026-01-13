@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.Optional;
 
 
-@AutoSpellConfig
 public class ThunderClapDashSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "thunder_clap_dash");
     private final DefaultConfig defaultConfig = new DefaultConfig()

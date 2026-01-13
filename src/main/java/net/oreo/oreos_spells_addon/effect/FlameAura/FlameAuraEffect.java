@@ -2,6 +2,7 @@ package net.oreo.oreos_spells_addon.effect.FlameAura;
 
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
@@ -10,12 +11,11 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.oreo.oreos_spells_addon.capabilities.magic.OreoSyncedSpellData;
 import net.oreo.oreos_spells_addon.registries.OreoParticleRegistry;
 
 import java.util.UUID;
 
-public class FlameAuraEffect extends MagicMobEffect {
+public class FlameAuraEffect extends MagicMobEffect implements ISyncedMobEffect {
     public static final float FIRE_SPELL_POWER_PER_LEVEL = 0.25f;
     public static final float FIRE_SPELL_RES_PER_LEVEL = 0.15f;
     public static final float MANA_REGEN_PER_LEVEL = 0.10f;
@@ -55,18 +55,6 @@ public class FlameAuraEffect extends MagicMobEffect {
                 FlameAuraEffect.MANA_DEBUFF_PER_LEVEL,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         );
-    }
-
-    @Override
-    public void removeAttributeModifiers(LivingEntity livingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.removeAttributeModifiers(livingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(livingEntity).getSyncedData().removeEffects(OreoSyncedSpellData.FLAMEAURAEFFECT);
-    }
-
-    @Override
-    public void addAttributeModifiers(LivingEntity plivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.addAttributeModifiers(plivingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(plivingEntity).getSyncedData().addEffects(OreoSyncedSpellData.FLAMEAURAEFFECT);
     }
 
     @Override

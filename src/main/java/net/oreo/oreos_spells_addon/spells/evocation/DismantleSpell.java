@@ -20,7 +20,7 @@ import net.oreo.oreos_spells_addon.oreos_spells_addon;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
+
 public class DismantleSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "dismantle");
 

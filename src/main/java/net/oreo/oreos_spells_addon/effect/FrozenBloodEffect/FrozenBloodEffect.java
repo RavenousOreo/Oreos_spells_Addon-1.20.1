@@ -1,11 +1,12 @@
 package net.oreo.oreos_spells_addon.effect.FrozenBloodEffect;
 
+import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 
-public class FrozenBloodEffect extends MobEffect {
+public class FrozenBloodEffect extends MobEffect implements ISyncedMobEffect {
 
     public FrozenBloodEffect() {
         super(MobEffectCategory.NEUTRAL, 0x8B0000); // Dark red color

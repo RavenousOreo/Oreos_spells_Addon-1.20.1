@@ -15,6 +15,7 @@
   "spell.oreos_spells_addon.thunderous_crown": "Thundering Crown",
   "spell.oreos_spells_addon.phantom_chrysalis": "Phantom Chrysalis",
   "spell.oreos_spells_addon.void_rupture": "Ender Detritus",
+  "spell.oreos_spells_addon.flame_aura": "Blazing Aura",
 
   "effect.oreos_spells_addon.flowing_red_scales": "Flowing Red Scales",
   "effect.oreos_spells_addon.sanguine_pool": "Sanguine Pool",
@@ -46,5 +47,6 @@
   "spell.oreos_spells_addon.boogie_woogie.guide": "Applause! Acclimation of the soul! Clap to control positioning: normal casts pull and stun foes or relocate allies, shift casts swap places or reposition them near others.",
   "spell.oreos_spells_addon.frozen_blood.guide": "Freeze the flow of blood—the highway of humanity—into a crystalline monument. Harden your body into unyielding stone, impervious to blade or flame. For a moment, become as diamond: untouchable, immovable, eternal.",
   "spell.oreos_spells_addon.flowingredscales.guide": "Ignite your body temperature and spike your red blood cell count—enter a state of crimson overdrive. Greatly enhances blood spell power, movement speed, and attack damage. Grants a flat 5% lifesteal while active.",
-  "spell.oreos_spells_addon.thunder_clap_dash.guide": "Dash forward as a bolt of lightning, instantly teleporting to your destination. If an enemy is struck, you instead teleport directly to them and detonate in a burst of electrical energy."
+  "spell.oreos_spells_addon.thunder_clap_dash.guide": "Dash forward as a bolt of lightning, instantly teleporting to your destination. If an enemy is struck, you instead teleport directly to them and detonate in a burst of electrical energy.",
+  "spell.oreos_spells_addon.flame_aura.guide": "Sacrifice your own mana to ignite yourself in searing flames, scorching nearby foes, empowering your fire magic, hastening your mana recovery, and turning you into a blazing shield against fire—while stripping your enemies of their flame defenses."
 }

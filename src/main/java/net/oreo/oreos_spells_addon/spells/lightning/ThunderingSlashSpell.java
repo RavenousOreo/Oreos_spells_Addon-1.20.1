@@ -32,7 +32,6 @@ import net.oreo.oreos_spells_addon.entity.spells.BloodyCleave.BloodyCleave;
 import java.util.List;
 import java.util.Optional;
 
-@AutoSpellConfig
 public class ThunderingSlashSpell extends AbstractSpell {
     private final ResourceLocation spellId = new ResourceLocation(oreos_spells_addon.MODID, "thundering_slash");
 

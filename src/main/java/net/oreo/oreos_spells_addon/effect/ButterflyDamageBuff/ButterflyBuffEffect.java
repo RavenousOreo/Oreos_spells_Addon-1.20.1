@@ -2,6 +2,7 @@ package net.oreo.oreos_spells_addon.effect.ButterflyDamageBuff;
 
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
+import io.redspace.ironsspellbooks.effect.ISyncedMobEffect;
 import io.redspace.ironsspellbooks.effect.MagicMobEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -14,13 +15,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.phys.Vec3;
-import net.oreo.oreos_spells_addon.capabilities.magic.OreoSyncedSpellData;
 import net.oreo.oreos_spells_addon.registries.OreoMobEffectRegistry;
 import net.oreo.oreos_spells_addon.registries.OreoParticleRegistry;
 
 import java.util.UUID;
 
-public class ButterflyBuffEffect extends MagicMobEffect {
+public class ButterflyBuffEffect extends MagicMobEffect implements ISyncedMobEffect {
     public static final float ATTACK_DAMAGE_PER_LEVEL = -0.15f;
     public static final float SPELL_POWER_PER_LEVEL = -0.05f;
     public static final UUID ATTACK_MODIFIER_ID = UUID.fromString("d8447629-b72c-40d0-92d4-56c75f785330");
@@ -42,18 +42,6 @@ public class ButterflyBuffEffect extends MagicMobEffect {
                 ButterflyBuffEffect.SPELL_POWER_PER_LEVEL,
                 AttributeModifier.Operation.MULTIPLY_TOTAL
         );
-    }
-
-    @Override
-    public void removeAttributeModifiers(LivingEntity plivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.removeAttributeModifiers(plivingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(plivingEntity).getSyncedData().removeEffects(OreoSyncedSpellData.BUTTERFLYDEBUFF);
-    }
-
-    @Override
-    public void addAttributeModifiers(LivingEntity plivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
-        super.addAttributeModifiers(plivingEntity, pAttributeMap, pAmplifier);
-        MagicData.getPlayerMagicData(plivingEntity).getSyncedData().removeEffects(OreoSyncedSpellData.BUTTERFLYDEBUFF);
     }
 
     @Override

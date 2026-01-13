@@ -1,18 +1,15 @@
 package net.oreo.oreos_spells_addon.entity.spells.Dismantle;
 
+import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
 import io.redspace.ironsspellbooks.util.ParticleHelper;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 import net.oreo.oreos_spells_addon.registries.OreoEntityRegistry;
@@ -22,6 +19,7 @@ import net.oreo.oreos_spells_addon.registries.OreoSpellRegistry;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class DismantleProjectile extends AbstractMagicProjectile {
 
@@ -53,6 +51,11 @@ public class DismantleProjectile extends AbstractMagicProjectile {
     @Override
     public float getSpeed() {
         return 2.8f;
+    }
+
+    @Override
+    public Optional<Supplier<SoundEvent>> getImpactSound() {
+        return Optional.empty();
     }
 
     @Override
@@ -111,12 +114,11 @@ public class DismantleProjectile extends AbstractMagicProjectile {
 
     }
 
-
-
     @Override
-    public Optional<SoundEvent> getImpactSound() {
-        return Optional.of(SoundEvents.PLAYER_ATTACK_SWEEP);
+    public void onAntiMagic(MagicData playerMagicData) {
+        this.discard();
     }
+
 
     @Override
     protected void onHitEntity(EntityHitResult hitResult) {
@@ -151,9 +153,6 @@ public class DismantleProjectile extends AbstractMagicProjectile {
         return tickCount;
     }
 
-    @Override
-    protected void defineSynchedData() {
-    }
 
     @Override
     public net.minecraft.world.entity.Pose getPose() {

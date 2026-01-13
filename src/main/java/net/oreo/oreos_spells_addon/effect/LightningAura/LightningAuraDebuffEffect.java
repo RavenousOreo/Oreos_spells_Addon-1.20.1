@@ -1,4 +1,4 @@
-package net.oreo.oreos_spells_addon.effect.FlameAura;
+package net.oreo.oreos_spells_addon.effect.LightningAura;
 
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
@@ -13,17 +13,17 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 import java.util.UUID;
 
-public class FlameAuraDebuffEffect extends MagicMobEffect implements ISyncedMobEffect {
-    public static final float FIRE_RES_SHRED_PER_LEVEL = -0.05f;
-    public static final UUID FIRE_RES_ID = UUID.fromString("5666ab47-4b6a-4039-967b-e1fca3e61b2c");
+public class LightningAuraDebuffEffect extends MagicMobEffect implements ISyncedMobEffect {
+    public static final float LIGHTNING_RES_SHRED_PER_LEVEL = -0.05f;
+    public static final UUID LIGHTNING_RES_ID = UUID.fromString("2553c978-03ee-462c-b514-a7b62ad5eb73");
 
-    public FlameAuraDebuffEffect(MobEffectCategory mobEffectCategory, int color) {
+    public LightningAuraDebuffEffect(MobEffectCategory mobEffectCategory, int color) {
         super(mobEffectCategory, color);
 
         this.addAttributeModifier(
-                AttributeRegistry.FIRE_MAGIC_RESIST.get(),
-                FIRE_RES_ID.toString(),
-                FlameAuraDebuffEffect.FIRE_RES_SHRED_PER_LEVEL,
+                AttributeRegistry.LIGHTNING_MAGIC_RESIST.get(),
+                LIGHTNING_RES_ID.toString(),
+                LightningAuraDebuffEffect.LIGHTNING_RES_SHRED_PER_LEVEL,
                 AttributeModifier.Operation.ADDITION
         );
     }
@@ -31,36 +31,33 @@ public class FlameAuraDebuffEffect extends MagicMobEffect implements ISyncedMobE
     @Override
     public void applyEffectTick(LivingEntity entity, int amplifier) {
         if (!entity.level().isClientSide && entity.level() instanceof ServerLevel serverLevel) {
-            double minY = entity.getY() + entity.getBbHeight() * 0.25; // start at chest height
+            double minY = entity.getY() + entity.getBbHeight() * 0.25;
             double maxY = entity.getY() + entity.getBbHeight() * 0.75;
 
-            int particleCount = 1 + amplifier; // keep it minimal for "sizzle"
+            int particleCount = 1 + amplifier;
 
             for (int i = 0; i < particleCount; i++) {
-                // Small horizontal jitter
-                double xOffset = (Math.random() - 0.5) * 0.3; // ±0.15
+                double xOffset = (Math.random() - 0.5) * 0.3;
                 double zOffset = (Math.random() - 0.5) * 0.3;
 
                 double x = entity.getX() + xOffset;
-                double y = minY + Math.random() * (maxY - minY); // chest-to-neck height
+                double y = minY + Math.random() * (maxY - minY);
                 double z = entity.getZ() + zOffset;
 
-                // Very gentle upward motion
                 double dx = 0;
                 double dy = 0.03 + Math.random() * 0.02;
                 double dz = 0;
 
                 serverLevel.sendParticles(
-                        ParticleHelper.EMBERS,
+                        ParticleHelper.ELECTRICITY,
                         x, y, z,
-                        1,      // 1 particle at a time
+                        1,
                         dx, dy, dz,
-                        0       // speed = 0 means use raw motion vector
+                        0
                 );
             }
         }
     }
-
 
     @Override
     public boolean isDurationEffectTick(int duration, int amplifier) {
